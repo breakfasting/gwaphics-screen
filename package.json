@@ -1,6 +1,7 @@
 {
   "engines": {
-    "node": "10.18.1"
+    "node": "10.18.1",
+    "npm": "6.13.4"
   },
   "name": "PuppetScreen",
   "version": "1.0.0",
