@@ -30,6 +30,10 @@ app.get('/screenshot', async (req, res) => {
     await browser.close();
 })
 
+app.get('/', function (req, res) {
+  res.send('hello world')
+})
+
 app.listen(PORT, () => {
     console.log(`app running on port: ${ PORT }`)
 });
