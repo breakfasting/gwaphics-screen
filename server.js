@@ -17,7 +17,7 @@ app.get('/screenshot', async (req, res) => {
         width: parseInt(req.query.width),
         height: parseInt(req.query.height),
     })
-    await page.goto(`https://gwaphics.herokuapp.com/#/view/${req.query.id}`,{ waitUntil: 'networkidle2' }); // URL is given by the "user" (your client-side application)
+    await page.goto(`https://gwaphics.herokuapp.com/#/view/${req.query.id}`,{ waitUntil: 'networkidle0' }); // URL is given by the "user" (your client-side application)
     const screenshotBuffer = await page.screenshot();
 
     // Respond with the image
