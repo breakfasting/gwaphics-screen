@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 const express = require('express');
 var cors = require('cors');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 app.use(cors());
@@ -18,6 +18,8 @@ app.get('/screenshot', async (req, res) => {
         height: parseInt(req.query.height),
     })
     await page.goto(`https://gwaphics.herokuapp.com/#/view/${req.query.id}`,{ waitUntil: 'networkidle0' }); // URL is given by the "user" (your client-side application)
+    // await page.goto(`http://localhost:3000/#/view/${req.query.id}`,{ waitUntil: 'networkidle0' });
+    await page.evaluateHandle('document.fonts.ready');
     const screenshotBuffer = await page.screenshot();
 
     // Respond with the image
